@@ -6,23 +6,21 @@ import com.furkanbrgl.dynwebappangular7.repository.IssueRepository;
 import com.furkanbrgl.dynwebappangular7.service.IssueService;
 import com.furkanbrgl.dynwebappangular7.util.TPage;
 import org.modelmapper.ModelMapper;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.Arrays;
 
-
 @Service
 public class IssueServiceImpl implements IssueService {
 
-    private final IssueRepository issueRepository;
-    private final ModelMapper modelMapper;
+    @Autowired
+    private IssueRepository issueRepository;
 
-    public IssueServiceImpl(IssueRepository issueRepository, ModelMapper modelMapper) {
-        this.issueRepository = issueRepository;
-        this.modelMapper = modelMapper;
-    }
+    @Autowired
+    private ModelMapper modelMapper;
 
     @Override
     public IssueDto save(IssueDto issue) {
@@ -55,9 +53,14 @@ public class IssueServiceImpl implements IssueService {
     }
 
     @Override
-    public Boolean delete(IssueDto issue) {
-        issueRepository.deleteById(issue.getId());
+    public Boolean delete(Long issueId) {
+        issueRepository.deleteById(issueId);
         return true;
+    }
+
+    @Override
+    public IssueDto update(Long id, IssueDto project) {
+        return null;
     }
 
 }

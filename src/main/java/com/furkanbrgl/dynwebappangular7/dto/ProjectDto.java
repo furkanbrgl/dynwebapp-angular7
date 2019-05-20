@@ -1,19 +1,29 @@
 package com.furkanbrgl.dynwebappangular7.dto;
 
 
-public class ProjectDto {
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 
+import javax.validation.constraints.NotNull;
+
+@ApiModel(value = "Project Data Transfer Object")
+public class ProjectDto {
+    @ApiModelProperty(value = "Project ID")
     private Long id;
+    @NotNull
+    @ApiModelProperty(required = true,value = "Name Of Project")
     private String projectName;
+    @NotNull
+    @ApiModelProperty(required = true,value = "Code Of Project")
     private String projectCode;
 
-    public ProjectDto(Long id, String projectName, String projectCode) {
+    public ProjectDto() {
+    }
+
+    public ProjectDto(Long id, @NotNull String projectName, @NotNull String projectCode) {
         this.id = id;
         this.projectName = projectName;
         this.projectCode = projectCode;
-    }
-
-    public ProjectDto() {
     }
 
     public Long getId() {

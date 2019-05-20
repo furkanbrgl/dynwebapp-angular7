@@ -1,16 +1,16 @@
 package com.furkanbrgl.dynwebappangular7.service;
 
-import com.furkanbrgl.dynwebappangular7.entity.User;
-import org.springframework.data.domain.Page;
+import com.furkanbrgl.dynwebappangular7.dto.UserDto;
+import com.furkanbrgl.dynwebappangular7.util.TPage;
 import org.springframework.data.domain.Pageable;
 
 public interface UserService {
 
-    User save(User user);
+    UserDto save(UserDto user);
 
-    User getById(Long id);
+    UserDto getById(Long id);
 
-    Page<User> getAllPageable(Pageable pageable);
+    TPage<UserDto> getAllPageable(Pageable pageable);
 
-    User getByUsername(String username);
+    UserDto getByUsername(String username);
 }
