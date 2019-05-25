@@ -12,6 +12,7 @@ import {ApiService} from "./service/api.service";
 import {ProjectService} from "./service/shared/project.service";
 import {IssueService} from "./service/shared/issue.service";
 import {HttpClientModule} from "@angular/common/http";
+import { NotfoundComponent } from './notfound/notfound.component';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import {HttpClientModule} from "@angular/common/http";
         AppLayoutComponent,
         FooterComponent,
         HeaderComponent,
-        SidebarComponent
+        SidebarComponent,
+        NotfoundComponent
     ],
     imports: [
         BrowserModule,
