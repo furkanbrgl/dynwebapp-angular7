@@ -19,6 +19,7 @@ import {JwtInterceptor} from "./security/jwt.interceptor";
 import {ErrorInterceptor} from "./security/authentication.interceptor";
 import { LoginComponent } from './login/login.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import { RegisterComponent } from './register/register.component';
 
 
 @NgModule({
@@ -29,7 +30,8 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
         HeaderComponent,
         SidebarComponent,
         NotfoundComponent,
-        LoginComponent
+        LoginComponent,
+        RegisterComponent
     ],
     imports: [
         BrowserModule,
