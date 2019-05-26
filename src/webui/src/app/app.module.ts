@@ -11,8 +11,14 @@ import {ToastNoAnimation, ToastNoAnimationModule, ToastrModule} from "ngx-toastr
 import {ApiService} from "./service/api.service";
 import {ProjectService} from "./service/shared/project.service";
 import {IssueService} from "./service/shared/issue.service";
-import {HttpClientModule} from "@angular/common/http";
-import { NotfoundComponent } from './notfound/notfound.component';
+import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
+import {NotfoundComponent} from './notfound/notfound.component';
+import {AuthenticationService} from "./security/authentication.service";
+import {AuthGuard} from "./security/auth.guard";
+import {JwtInterceptor} from "./security/jwt.interceptor";
+import {ErrorInterceptor} from "./security/authentication.interceptor";
+import { LoginComponent } from './login/login.component';
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 
 
 @NgModule({
@@ -22,10 +28,13 @@ import { NotfoundComponent } from './notfound/notfound.component';
         FooterComponent,
         HeaderComponent,
         SidebarComponent,
-        NotfoundComponent
+        NotfoundComponent,
+        LoginComponent
     ],
     imports: [
         BrowserModule,
+        FormsModule,
+        ReactiveFormsModule,
         AppRoutingModule,
         HttpClientModule,
         CollapseModule.forRoot(),
@@ -40,7 +49,14 @@ import { NotfoundComponent } from './notfound/notfound.component';
             autoDismiss: true
         }),
     ],
-    providers: [ApiService, ProjectService, IssueService],
+    providers: [ApiService,
+        ProjectService,
+        IssueService,
+        AuthenticationService,
+        AuthGuard,
+        {provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true},
+        {provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true},
+    ],
     bootstrap: [AppComponent]
 })
 export class AppModule {

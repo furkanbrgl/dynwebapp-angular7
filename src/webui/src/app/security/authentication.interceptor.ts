@@ -4,6 +4,7 @@ import {Injectable} from "@angular/core";
 import {catchError} from "rxjs/operators";
 import {AuthenticationService} from "./authentication.service";
 
+//Butun gelen ve giden isteklerde yine araya giriyor. 401 (unauthentication) yersek logout olur. ErrorInterceptor
 @Injectable()
 export class ErrorInterceptor implements HttpInterceptor {
 
@@ -13,6 +14,7 @@ export class ErrorInterceptor implements HttpInterceptor {
         return next.handle(request).pipe(catchError(err => {
             if (err.status === 401) {
                 this.authenticationService.logout();
+                // sayfa reload oldugunda auth.guard araya girip localStorage da userı bulamayında logine atacak.
                 location.reload(true);
             }
 

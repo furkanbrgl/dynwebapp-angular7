@@ -11,6 +11,7 @@ export class AuthGuard implements CanActivate {
             return true;
         }
 
+        //localStorage da user yoksa login sayfasına yünlendirelecek. Uygulamada ki filter dır. session yoksa logine yonlendir.
         this.router.navigate(['/login'], { queryParams: { returnUrl: state.url }});
         return false;
     }
