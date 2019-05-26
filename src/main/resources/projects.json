@@ -13,5 +13,17 @@
     "_class": "com.furkanbrgl.dynwebappangular7.entity.Project",
     "projectCode" : "CRM-S",
     "projectName": "CRM Project for Sales"
+  },
+  {
+    "_class": "com.furkanbrgl.dynwebappangular7.entity.User",
+    "username" : "furkanbrgl",
+    "nameSurname": "furkan BİRGUL",
+    "email":"brgl.furkan@gmail.com"
+  },
+  {
+    "_class": "com.furkanbrgl.dynwebappangular7.entity.User",
+    "username" : "test",
+    "nameSurname": "Sample KAL",
+    "email":"test@gmail.com"
   }
 ]

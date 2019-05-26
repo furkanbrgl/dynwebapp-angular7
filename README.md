@@ -29,3 +29,5 @@ Create new component; ng generate component pages\project
 
 Create new service; ng generate service service\api
 
+### JWT
+Header + Payload + Signature all of them base on base64

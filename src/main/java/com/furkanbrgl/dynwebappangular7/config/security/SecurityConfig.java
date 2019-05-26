@@ -1,4 +1,5 @@
 package com.furkanbrgl.dynwebappangular7.config.security;
+import com.furkanbrgl.dynwebappangular7.service.Impl.UserDetailsServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
